@@ -20,6 +20,8 @@ class OrderForWhoPage:
     metro_selected = [By.CSS_SELECTOR, '[class="select-search__select"]']
     phone = [By.CSS_SELECTOR, '[placeholder*="елефо"]']
     next_but = [By.XPATH, ".//button[contains(text(), 'але')]"]
+    scooter_logo = [By.CSS_SELECTOR, '[alt = "Scooter"]']
+    yandex_logo = [By.CSS_SELECTOR, '[href*="yand"]']
 
     def __init__(self, driver):
         self.driver = driver
@@ -68,6 +70,24 @@ class OrderForWhoPage:
     @allure.step(f'Заполняем поле - телефон')
     def set_phone(self, phone):
         self.driver.find_element(*self.phone).send_keys(phone)
+
+    @allure.step('Получаем url текущей страницы и возвращаем его для сравнения')
+    def url_on_page(self):
+        WebDriverWait(self.driver, timeout=10).until(EC.any_of(*[EC.url_contains('yandex'),
+                                                                EC.url_contains('praktikum')]))
+
+    @allure.step('Переходим на главную страницу Самоката кликом на логотип')
+    def go_to_base_page(self):
+        self.driver.find_element(*self.scooter_logo).click()
+
+    @allure.step('Переходим на главную страницу Яндекса кликом на логотип сервиса и переходим на неё')
+    def go_to_yandex_page(self, tab):
+        self.driver.find_element(*self.yandex_logo).click()
+        self.driver.switch_to.window(self.driver.window_handles[tab])
+
+    @allure.step('Проверяем отображение модели самоката на главной странице')
+    def check_scooter_model_on_page(self):
+        self.driver.find_element(*self.scooter_logo).is_displayed()
 
     @allure.step('Заполняем все поля в форме')
     def fill_order_form_first(self, name, sub_name, order_state, metro, phone):

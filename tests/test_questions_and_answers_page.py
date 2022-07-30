@@ -15,7 +15,6 @@ class TestQuestionsAnswers:
     def setup_class(cls):
         cls.driver = webdriver.Firefox()
 
-
     @allure.title('Вопрос № 1')
     @allure.description('Получаем текст вопроса, текст ответа и сравниваем их ')
     def test_first_question(self):
@@ -35,6 +34,14 @@ class TestQuestionsAnswers:
         question_answer = question.get_any_answer_text(1)
         assert question_answer == question_answers_texts[1], 'Текст ответа не совпадает!'
 
+    @classmethod
+    def teardown_class(cls):
+        cls.driver.quit()
+
+    @classmethod
+    def setup_class(cls):
+        cls.driver = webdriver.Firefox()
+
     @allure.title('Вопрос № 2')
     @allure.description('Получаем текст вопроса, текст ответа и сравниваем их с эталонными')
     def test_second_question(self):
@@ -51,6 +58,14 @@ class TestQuestionsAnswers:
 
         question_answer = question.get_any_answer_text(2)
         assert question_answer == question_answers_texts[2], 'Текст ответа не совпадает!'
+
+    @classmethod
+    def teardown_class(cls):
+        cls.driver.quit()
+
+    @classmethod
+    def setup_class(cls):
+        cls.driver = webdriver.Firefox()
 
     @allure.title('Вопрос № 3')
     @allure.description('Получаем текст вопроса, текст ответа и сравниваем их с эталонными')
@@ -69,6 +84,14 @@ class TestQuestionsAnswers:
         question_answer = question.get_any_answer_text(3)
         assert question_answer == question_answers_texts[3], 'Текст ответа не совпадает!'
 
+    @classmethod
+    def teardown_class(cls):
+        cls.driver.quit()
+
+    @classmethod
+    def setup_class(cls):
+        cls.driver = webdriver.Firefox()
+
     @allure.title('Вопрос № 4')
     @allure.description('Получаем текст вопроса, текст ответа и сравниваем их с эталонными')
     def test_fourth_question(self):
@@ -85,6 +108,14 @@ class TestQuestionsAnswers:
 
         question_answer = question.get_any_answer_text(4)
         assert question_answer == question_answers_texts[4], 'Текст ответа не совпадает!'
+
+    @classmethod
+    def teardown_class(cls):
+        cls.driver.quit()
+
+    @classmethod
+    def setup_class(cls):
+        cls.driver = webdriver.Firefox()
 
     @allure.title('Вопрос № 5')
     @allure.description('Получаем текст вопроса, текст ответа и сравниваем их с эталонными')
@@ -103,6 +134,14 @@ class TestQuestionsAnswers:
         question_answer = question.get_any_answer_text(5)
         assert question_answer == question_answers_texts[5], 'Текст ответа не совпадает!'
 
+    @classmethod
+    def teardown_class(cls):
+        cls.driver.quit()
+
+    @classmethod
+    def setup_class(cls):
+        cls.driver = webdriver.Firefox()
+
     @allure.title('Вопрос № 6')
     @allure.description('Получаем текст вопроса, текст ответа и сравниваем их с эталонными')
     def test_sixth_question(self):
@@ -120,6 +159,14 @@ class TestQuestionsAnswers:
         question_answer = question.get_any_answer_text(6)
         assert question_answer == question_answers_texts[6], 'Текст ответа не совпадает!'
 
+    @classmethod
+    def teardown_class(cls):
+        cls.driver.quit()
+
+    @classmethod
+    def setup_class(cls):
+        cls.driver = webdriver.Firefox()
+
     @allure.title('Вопрос № 7')
     @allure.description('Получаем текст вопроса, текст ответа и сравниваем их с эталонными')
     def test_seventh_question(self):
@@ -136,6 +183,14 @@ class TestQuestionsAnswers:
 
         question_answer = question.get_any_answer_text(7)
         assert question_answer == question_answers_texts[7], 'Текст ответа не совпадает!'
+
+    @classmethod
+    def teardown_class(cls):
+        cls.driver.quit()
+
+    @classmethod
+    def setup_class(cls):
+        cls.driver = webdriver.Firefox()
 
     @allure.title('Вопрос № 8')
     @allure.description('Получаем текст вопроса, текст ответа и сравниваем их с эталонными')
