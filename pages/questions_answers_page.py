@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from config import site
 from selenium.webdriver.support.wait import WebDriverWait
 import allure
-import time
+#import time
 
 class QuestionsAnswersPage:
     questions = {1: [By.ID, "accordion__heading-0"],
@@ -30,30 +30,36 @@ class QuestionsAnswersPage:
 
     @allure.step(f'Открываем страницу {site}')
     def get_base_page(self):
-        time.sleep(1)
+        #time.sleep(1)
+        WebDriverWait(self.driver, timeout=5)
         return self.driver.get(site)
 
     @allure.step('Скролим страницу к вопросу')
     def scroll_to_question(self, question):
-        time.sleep(1)
+        #time.sleep(1)
+        WebDriverWait(self.driver, timeout=5)
         self.question = self.questions[question]
         element = self.driver.find_element(*self.question)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
 
     @allure.step('Получаем текст вопроса и возвращаем его для сравнения')
     def get_question(self, question):
-        time.sleep(1)
+        #time.sleep(1)
+        WebDriverWait(self.driver, timeout=5)
         self.question = self.questions[question]
         return self.driver.find_element(*self.question).text
 
     @allure.step('Клик по тексту вопроса для раскрытия')
     def get_any_answer(self, question):
-        time.sleep(1)
+        #time.sleep(1)
+        WebDriverWait(self.driver, timeout=5)
         self.question = self.questions[question]
         self.driver.find_element(*self.question).click()
 
     @allure.step('Получаем текст ответа и возвращаем его для сравнения')
     def get_any_answer_text(self, answer):
-        time.sleep(1)
+        #time.sleep(1)
+        WebDriverWait(self.driver, timeout=5)
         self.answer = self.answers[answer]
         return self.driver.find_element(*self.answer).text
+

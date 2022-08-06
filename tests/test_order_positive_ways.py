@@ -8,12 +8,17 @@ import allure
 
 class TestOrderPositiveCases:
 
-    driver = webdriver.Firefox()
+    #driver = webdriver.Firefox()
 
     @classmethod
     def setup_class(cls):
         # создали драйвер для браузера Firefox
         cls.driver = webdriver.Firefox()
+
+    @classmethod
+    def teardown_class(cls):
+        # закрой браузер
+        cls.driver.quit()
 
     @allure.title('Позитивный прогон через Header с первым набором данных')
     @allure.description('Проверяем позитивный флоу')
@@ -62,15 +67,6 @@ class TestOrderPositiveCases:
         #url_on_yandex_page = order_status_page.url_on_page()
         #assert url_on_yandex_page == yandex_site, 'Клик на логотип Яндекса не переводит на главную страницу!'
 
-    @classmethod
-    def teardown_class(cls):
-        # закрой браузер
-        cls.driver.quit()
-
-    @classmethod
-    def setup_class(cls):
-        # создали драйвер для браузера Firefox
-        cls.driver = webdriver.Firefox()
 
     @allure.title('Позитивный прогон через Header со вторым набором данных')
     @allure.description('Проверяем позитивный флоу со вторым набором')
@@ -119,15 +115,6 @@ class TestOrderPositiveCases:
         #url_on_yandex_page = order_status_page.url_on_page()
         #assert url_on_yandex_page == yandex_site, 'Клик на логотип Яндекса не ведёт на главную страницу!'
 
-    @classmethod
-    def teardown_class(cls):
-        # закрой браузер
-        cls.driver.quit()
-
-    @classmethod
-    def setup_class(cls):
-        # создали драйвер для браузера Firefox
-        cls.driver = webdriver.Firefox()
 
     @allure.description('Проверяем количество кнопок "Заказать"')
     def test_check_buttons_count(self):
@@ -137,15 +124,6 @@ class TestOrderPositiveCases:
         count_of_order_buttons = order_for_who_page.get_all_order_buttons_count()
         assert count_of_order_buttons == 2, 'Количество кнопок "Заказать" != 2!'
 
-    @classmethod
-    def teardown_class(cls):
-        # закрой браузер
-        cls.driver.quit()
-
-    @classmethod
-    def setup_class(cls):
-        # создали драйвер для браузера Firefox
-        cls.driver = webdriver.Firefox()
 
     @allure.title('Позитивный прогон через Footer с первым набором данных')
     @allure.description('Проверяем позитивный флоу с первым набором')
@@ -196,15 +174,6 @@ class TestOrderPositiveCases:
         #url_on_yandex_page = order_status_page.url_on_page()
         #assert url_on_yandex_page == yandex_site, 'Клик на лого Яндекса не ведёт на главную страницу!'
 
-    @classmethod
-    def teardown_class(cls):
-        # закрой браузер
-        cls.driver.quit()
-
-    @classmethod
-    def setup_class(cls):
-        # создали драйвер для браузера Firefox
-        cls.driver = webdriver.Firefox()
 
     @allure.title('Позитивный прогон через Footer со вторым набором данных')
     @allure.description('Проверяем позитивный флоу со вторым набором')
@@ -254,15 +223,6 @@ class TestOrderPositiveCases:
         #url_on_yandex_page = order_status_page.url_on_page()
         #assert url_on_yandex_page == yandex_site, 'Клик на логотип Яндекса не ведёт на главную страницу!'
 
-    @classmethod
-    def teardown_class(cls):
-        # закрой браузер
-        cls.driver.quit()
-
-    @classmethod
-    def setup_class(cls):
-        # создали драйвер для браузера Firefox
-        cls.driver = webdriver.Firefox()
 
     @allure.description('При клике на лого Yandex происходит переход на страницу Yandex')
     def test_click_on_yandex_logo_suces(self):
@@ -297,15 +257,6 @@ class TestOrderPositiveCases:
         url_on_yandex_page = order_status_page.url_on_page()
         assert url_on_yandex_page == yandex_site, 'Клик на логотип Яндекса не переводит на главную страницу!'
 
-    @classmethod
-    def teardown_class(cls):
-        # закрой браузер
-        cls.driver.quit()
-
-    @classmethod
-    def setup_class(cls):
-        # создали драйвер для браузера Firefox
-        cls.driver = webdriver.Firefox()
 
     @allure.description('При клике на лого "Самокат" происходит переход на главную страницу')
     def test_click_on_scooter_logo(self):
@@ -339,10 +290,7 @@ class TestOrderPositiveCases:
         url_on_base_page = order_status_page.url_on_page()
         assert url_on_base_page == site, 'Клик на лого Самоката не ведёт на главную страницу!'
 
-    @classmethod
-    def teardown_class(cls):
-        # закрой браузер
-        cls.driver.quit()
+
 
 
         #Все запускается

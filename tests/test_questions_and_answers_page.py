@@ -9,21 +9,23 @@ from selenium.webdriver.support.wait import WebDriverWait
 @allure.description('Тесты на вопрос и ответ')
 class TestQuestionsAnswers:
 
-    driver = None
+    #driver = None
 
     @classmethod
     def setup_class(cls):
         cls.driver = webdriver.Firefox()
 
+    @classmethod
+    def teardown_class(cls):
+        cls.driver.quit()
+
     @allure.title('Вопрос № 1')
     @allure.description('Получаем текст вопроса, текст ответа и сравниваем их ')
     def test_first_question(self):
 
-        WebDriverWait(self.driver, timeout=10)
-
         question = QuestionsAnswersPage(self.driver)
-
         question.get_base_page()
+        WebDriverWait(self.driver, 15)
         question.scroll_to_question(1)
 
         question_text = question.get_question(1)
@@ -34,21 +36,16 @@ class TestQuestionsAnswers:
         question_answer = question.get_any_answer_text(1)
         assert question_answer == question_answers_texts[1], 'Текст ответа не совпадает!'
 
-    @classmethod
-    def teardown_class(cls):
-        cls.driver.quit()
-
-    @classmethod
-    def setup_class(cls):
-        cls.driver = webdriver.Firefox()
 
     @allure.title('Вопрос № 2')
     @allure.description('Получаем текст вопроса, текст ответа и сравниваем их с эталонными')
     def test_second_question(self):
 
+
         question = QuestionsAnswersPage(self.driver)
 
         question.get_base_page()
+        WebDriverWait(self.driver, 15)
         question.scroll_to_question(2)
 
         question_text = question.get_question(2)
@@ -59,13 +56,6 @@ class TestQuestionsAnswers:
         question_answer = question.get_any_answer_text(2)
         assert question_answer == question_answers_texts[2], 'Текст ответа не совпадает!'
 
-    @classmethod
-    def teardown_class(cls):
-        cls.driver.quit()
-
-    @classmethod
-    def setup_class(cls):
-        cls.driver = webdriver.Firefox()
 
     @allure.title('Вопрос № 3')
     @allure.description('Получаем текст вопроса, текст ответа и сравниваем их с эталонными')
@@ -74,6 +64,7 @@ class TestQuestionsAnswers:
         question = QuestionsAnswersPage(self.driver)
 
         question.get_base_page()
+        WebDriverWait(self.driver, 15)
         question.scroll_to_question(3)
 
         question_text = question.get_question(3)
@@ -84,13 +75,6 @@ class TestQuestionsAnswers:
         question_answer = question.get_any_answer_text(3)
         assert question_answer == question_answers_texts[3], 'Текст ответа не совпадает!'
 
-    @classmethod
-    def teardown_class(cls):
-        cls.driver.quit()
-
-    @classmethod
-    def setup_class(cls):
-        cls.driver = webdriver.Firefox()
 
     @allure.title('Вопрос № 4')
     @allure.description('Получаем текст вопроса, текст ответа и сравниваем их с эталонными')
@@ -99,6 +83,7 @@ class TestQuestionsAnswers:
         question = QuestionsAnswersPage(self.driver)
 
         question.get_base_page()
+        WebDriverWait(self.driver, 15)
         question.scroll_to_question(4)
 
         question_text = question.get_question(4)
@@ -109,13 +94,6 @@ class TestQuestionsAnswers:
         question_answer = question.get_any_answer_text(4)
         assert question_answer == question_answers_texts[4], 'Текст ответа не совпадает!'
 
-    @classmethod
-    def teardown_class(cls):
-        cls.driver.quit()
-
-    @classmethod
-    def setup_class(cls):
-        cls.driver = webdriver.Firefox()
 
     @allure.title('Вопрос № 5')
     @allure.description('Получаем текст вопроса, текст ответа и сравниваем их с эталонными')
@@ -124,6 +102,7 @@ class TestQuestionsAnswers:
         question = QuestionsAnswersPage(self.driver)
 
         question.get_base_page()
+        WebDriverWait(self.driver, 15)
         question.scroll_to_question(5)
 
         question_text = question.get_question(5)
@@ -134,13 +113,6 @@ class TestQuestionsAnswers:
         question_answer = question.get_any_answer_text(5)
         assert question_answer == question_answers_texts[5], 'Текст ответа не совпадает!'
 
-    @classmethod
-    def teardown_class(cls):
-        cls.driver.quit()
-
-    @classmethod
-    def setup_class(cls):
-        cls.driver = webdriver.Firefox()
 
     @allure.title('Вопрос № 6')
     @allure.description('Получаем текст вопроса, текст ответа и сравниваем их с эталонными')
@@ -149,6 +121,7 @@ class TestQuestionsAnswers:
         question = QuestionsAnswersPage(self.driver)
 
         question.get_base_page()
+        WebDriverWait(self.driver, 15)
         question.scroll_to_question(6)
 
         question_text = question.get_question(6)
@@ -159,13 +132,6 @@ class TestQuestionsAnswers:
         question_answer = question.get_any_answer_text(6)
         assert question_answer == question_answers_texts[6], 'Текст ответа не совпадает!'
 
-    @classmethod
-    def teardown_class(cls):
-        cls.driver.quit()
-
-    @classmethod
-    def setup_class(cls):
-        cls.driver = webdriver.Firefox()
 
     @allure.title('Вопрос № 7')
     @allure.description('Получаем текст вопроса, текст ответа и сравниваем их с эталонными')
@@ -174,6 +140,7 @@ class TestQuestionsAnswers:
         question = QuestionsAnswersPage(self.driver)
 
         question.get_base_page()
+        WebDriverWait(self.driver, 15)
         question.scroll_to_question(7)
 
         question_text = question.get_question(7)
@@ -184,13 +151,6 @@ class TestQuestionsAnswers:
         question_answer = question.get_any_answer_text(7)
         assert question_answer == question_answers_texts[7], 'Текст ответа не совпадает!'
 
-    @classmethod
-    def teardown_class(cls):
-        cls.driver.quit()
-
-    @classmethod
-    def setup_class(cls):
-        cls.driver = webdriver.Firefox()
 
     @allure.title('Вопрос № 8')
     @allure.description('Получаем текст вопроса, текст ответа и сравниваем их с эталонными')
@@ -199,6 +159,7 @@ class TestQuestionsAnswers:
         question = QuestionsAnswersPage(self.driver)
 
         question.get_base_page()
+        WebDriverWait(self.driver, 15)
         question.scroll_to_question(8)
 
         question_text = question.get_question(8)
@@ -209,6 +170,3 @@ class TestQuestionsAnswers:
         question_answer = question.get_any_answer_text(8)
         assert question_answer == question_answers_texts[8], 'Текст ответа не совпадает!'
 
-    @classmethod
-    def teardown_class(cls):
-        cls.driver.quit()
